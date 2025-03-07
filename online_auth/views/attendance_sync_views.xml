@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form view for Attendance Sync Wizard -->
+    <record id="view_attendance_sync_wizard_form" model="ir.ui.view">
+        <field name="name">attendance.sync.wizard.form</field>
+        <field name="model">attendance.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Synchronization">
+                <sheet>
+                    <group>
+                        <field name="last_sync" readonly="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_sync_attendance" type="object"
+                            string="Sync Attendance" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the Attendance Sync Wizard as a popup -->
+    <record id="action_attendance_sync_wizard" model="ir.actions.act_window">
+        <field name="name">Attendance Sync</field>
+        <field name="res_model">attendance.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Optional: Add a menu item to access the wizard -->
+    <menuitem id="menu_attendance_sync" name="Attendance Sync"
+              parent="hr.menu_hr_root" action="action_attendance_sync_wizard"
+              sequence="10"/>
+</odoo>

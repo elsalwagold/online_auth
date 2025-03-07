@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Authentication Form Template -->
+    <template id="auth_form_template" name="Online Odoo Authentication Form">
+        <t t-call="website.layout">
+            <div class="container mt16">
+                <h2>Online Odoo Authentication</h2>
+                <form action="/online/auth/submit" method="post">
+                    <!-- Insert the CSRF token as a hidden input -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <div class="form-group">
+                        <label for="url">Odoo URL</label>
+                        <input type="text" name="url" id="url" class="form-control"
+                               value="https://smartfitnesssa-fitness-gym.odoo.com/"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="db">Database Name</label>
+                        <input type="text" name="db" id="db" class="form-control"
+                               value="smartfitnesssa-fitness-gym-main-17599672"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="text" name="login" id="login" class="form-control"
+                               value="accountant@smartfitness.com.sa"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                               value="Sf@1475963"/>
+                    </div>
+                    <!-- (Optional) hidden token field -->
+                    <div class="form-group" style="display: none;">
+                        <label for="token">Token</label>
+                        <input type="text" name="token" id="token" class="form-control"
+                               value="bdc18716c1a86504b7955a7aec06d445f2a2a84c"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Authenticate</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <!-- Authentication Result Template -->
+    <template id="auth_result_template" name="Online Odoo Authentication Result">
+        <t t-call="website.layout">
+            <div class="container mt16">
+                <h2>Authentication Result</h2>
+                <pre><t t-esc="result"/></pre>
+                <div class="mt16">
+                    <a href="/online/auth" class="btn btn-secondary">Back</a>
+                    <!-- New button to view attendance records -->
+                    <a href="/online/auth/attendance" class="btn btn-primary">View Attendance Records</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
