@@ -8,9 +8,26 @@
             <form string="Attendance Synchronization">
                 <sheet>
                     <group>
-                        <field name="last_sync" readonly="1"/>
+                        <group>
+                            <field name="last_sync" readonly="1"/>
+                            <field name="attendance_preview" readonly="1"/>
+                            <field name="sync_report" readonly="1" widget="text"
+                                   placeholder="Synchronization report will appear here..."/>
+                        </group>
+
+                        <group>
+                            <button name="action_test_authentication" type="object"
+                                    string="Test Authentication" class="btn-info"/>
+                            <button name="action_preview_attendance" type="object"
+                                    string="Preview Attendance Data" class="btn-secondary"/>
+                        </group>
+
+                        <group>
+                            <field name="attendance_preview" nolabel="1" readonly="1" widget="text"/>
+                        </group>
                     </group>
                 </sheet>
+
                 <footer>
                     <button name="action_sync_attendance" type="object"
                             string="Sync Attendance" class="btn-primary"/>

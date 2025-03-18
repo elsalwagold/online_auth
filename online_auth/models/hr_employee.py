@@ -3,6 +3,9 @@ from odoo import models, fields, api
 class HREmployee(models.Model):
     _inherit = 'hr.employee'
 
+    biometric_device_id = fields.Char(string="Biometric Device ID")  # Ensure this field exists
+
+
     mapping_id = fields.Char(
         string='Mapping ID',
         help='Unique identifier for mapping employees between Odoo instances',

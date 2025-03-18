@@ -3,3 +3,4 @@ access_hr_mapping_employee,access.hr.mapping.employee,hr.model_hr_employee,base.
 access_hr_mapping_attendance,access.hr.mapping.attendance,hr.model_hr_attendance,base.group_user,1,1,1,1
 access_hr_mapping_employee,access.hr.mapping.employee,hr.model_hr_employee,base.group_user,1,1,1,1
 access_hr_mapping_attendance,access.hr.mapping.attendance,hr.model_hr_attendance,base.group_user,1,1,1,1
+access_attendance_sync_report,attendance.sync.report,model_attendance_sync_report,,1,1,1,1

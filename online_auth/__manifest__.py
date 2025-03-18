@@ -19,6 +19,8 @@
         'data/ir_sequence.xml',
         'views/auth_templates.xml',
         'views/attendance_sync_views.xml',
+        'views/hr_attendance_views.xml',
+        'views/sync_report_views.xml',
 
     ],
     'installable': True,

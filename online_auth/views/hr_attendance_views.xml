@@ -1,0 +1,30 @@
+<odoo>
+   <record id="view_hr_attendance_list_inherit" model="ir.ui.view">
+    <field name="name">hr.attendance.list.inherit</field>
+    <field name="model">hr.attendance</field>
+    <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//list" position="inside">
+            <field name="employee_work_email"/>
+            <field name="biometric_device_id" string="Biometric Device ID"/>
+        </xpath>
+    </field>
+</record>
+
+
+</odoo>
+
+<!--<odoo>-->
+<!--    <record id="view_attendance_sync_list_inherit" model="ir.ui.view">-->
+<!--        <field name="name">hr.attendance.sync.list.inherit</field>-->
+<!--        <field name="model">hr.attendance</field>-->
+<!--        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <list>-->
+<!--                <field name="employee_work_email" position="after">-->
+<!--                    <field name="biometric_device_id"/>-->
+<!--                </field>-->
+<!--            </list>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--</odoo>-->

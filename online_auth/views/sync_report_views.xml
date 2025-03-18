@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_attendance_sync_report_tree" model="ir.ui.view">
+        <field name="name">attendance.sync.report.tree</field>
+        <field name="model">attendance.sync.report</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sync_date"/>
+                <field name="employee_name"/>
+                <field name="biometric_device_id"/>
+                <field name="work_email"/>
+                <field name="synced_fields"/>
+                <field name="empty_fields"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_attendance_sync_report" model="ir.actions.act_window">
+        <field name="name">Synchronization Report</field>
+        <field name="res_model">attendance.sync.report</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem id="menu_attendance_sync_report"
+              name="Sync Report"
+              parent="hr.menu_hr_root"
+              action="action_attendance_sync_report"/>
+</odoo>
