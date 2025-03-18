@@ -1,0 +1,52 @@
+// Online Auth Module Styles
+
+// License status colors
+.o_license_status {
+    &.o_status_active {
+        color: #28a745;
+    }
+    
+    &.o_status_expired {
+        color: #dc3545;
+    }
+    
+    &.o_status_invalid {
+        color: #6c757d;
+    }
+}
+
+// Sync report styles
+.o_sync_report {
+    font-family: monospace;
+    white-space: pre-wrap;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    
+    .success {
+        color: #28a745;
+    }
+    
+    .error {
+        color: #dc3545;
+    }
+    
+    .warning {
+        color: #ffc107;
+    }
+    
+    .info {
+        color: #17a2b8;
+    }
+}
+
+// Company credentials card
+.o_kanban_view {
+    .o_kanban_record {
+        &.oe_kanban_card_inactive {
+            opacity: 0.6;
+        }
+    }
+} 

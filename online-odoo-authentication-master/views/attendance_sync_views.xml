@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form view for Attendance Sync Wizard -->
+    <record id="view_attendance_sync_wizard_form" model="ir.ui.view">
+        <field name="name">attendance.sync.wizard.form</field>
+        <field name="model">attendance.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Synchronization">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_credentials_id" options="{'no_create': True, 'no_open': False}"/>
+                            <field name="last_sync" readonly="1"/>
+                        </group>
+                        <group>
+                            <button name="action_test_authentication" type="object"
+                                    string="Test Authentication" class="btn-info"/>
+                            <button name="action_preview_attendance" type="object"
+                                    string="Preview Attendance Data" class="btn-secondary"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Synchronization Options">
+                        <field name="skip_existing"/>
+                        <field name="update_existing" invisible="not skip_existing"/>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Preview" name="preview">
+                            <field name="attendance_preview" readonly="1" widget="text" placeholder="Attendance preview will appear here..."/>
+                        </page>
+                        <page string="Sync Report" name="report">
+                            <field name="sync_report" readonly="1" widget="text" placeholder="Synchronization report will appear here..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <footer>
+                    <button name="action_sync_attendance" type="object"
+                            string="Sync Attendance" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the Attendance Sync Wizard as a popup -->
+    <record id="action_attendance_sync_wizard" model="ir.actions.act_window">
+        <field name="name">Attendance Sync</field>
+        <field name="res_model">attendance.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- The menu item will be added in company_credentials_views.xml -->
+</odoo>

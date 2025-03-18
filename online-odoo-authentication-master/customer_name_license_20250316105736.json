@@ -1,0 +1,10 @@
+{
+    "license_key": "1544E1859F02D05C91E184B1BF1A37F2",
+    "company_name": "Customer Name",
+    "creation_date": "2025-03-16 10:57:36",
+    "expiration_date": "2026-03-16 10:57:36",
+    "license_type": "commercial",
+    "is_trial": false,
+    "max_users": 10,
+    "features": "attendance_sync,employee_mapping,api_access"
+}

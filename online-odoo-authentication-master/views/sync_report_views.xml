@@ -1,0 +1,83 @@
+<odoo>
+    <record id="view_attendance_sync_report_tree" model="ir.ui.view">
+        <field name="name">attendance.sync.report.tree</field>
+        <field name="model">attendance.sync.report</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="status == 'failed'" decoration-success="status == 'success'" decoration-info="status == 'skipped'">
+                <field name="sync_date"/>
+                <field name="employee_name"/>
+                <field name="biometric_device_id"/>
+                <field name="work_email"/>
+                <field name="synced_fields"/>
+                <field name="empty_fields"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    
+    <record id="view_attendance_sync_report_form" model="ir.ui.view">
+        <field name="name">attendance.sync.report.form</field>
+        <field name="model">attendance.sync.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sync_date"/>
+                            <field name="employee_name"/>
+                            <field name="biometric_device_id"/>
+                            <field name="work_email"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="synced_fields"/>
+                            <field name="empty_fields"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="view_attendance_sync_report_search" model="ir.ui.view">
+        <field name="name">attendance.sync.report.search</field>
+        <field name="model">attendance.sync.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_name"/>
+                <field name="work_email"/>
+                <field name="sync_date"/>
+                <separator/>
+                <filter string="Success" name="success" domain="[('status', '=', 'success')]"/>
+                <filter string="Failed" name="failed" domain="[('status', '=', 'failed')]"/>
+                <filter string="Skipped" name="skipped" domain="[('status', '=', 'skipped')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_status" context="{'group_by': 'status'}"/>
+                    <filter string="Sync Date" name="group_by_date" context="{'group_by': 'sync_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_attendance_sync_report" model="ir.actions.act_window">
+        <field name="name">Synchronization Reports</field>
+        <field name="res_model">attendance.sync.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_attendance_sync_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No synchronization reports yet
+            </p>
+            <p>
+                Synchronization reports will be created when you sync attendance records.
+            </p>
+        </field>
+    </record>
+
+    <!-- Add menu item under our module's menu -->
+    <menuitem id="menu_attendance_sync_report"
+              name="Sync Reports"
+              parent="menu_online_auth_root"
+              action="action_attendance_sync_report"
+              sequence="30"/>
+</odoo>
